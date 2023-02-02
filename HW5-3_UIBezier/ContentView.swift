@@ -7,15 +7,27 @@
 
 import SwiftUI
 
+struct DrawView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        
+        let path = UIBezierPath()
+                path.move(to: CGPoint(x: 0, y: 0))
+                path.addLine(to: CGPoint(x: 100, y: 0))
+                path.addLine(to: CGPoint(x: 100, y: 100))
+                path.close()
+        
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+    }
+    
+}
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        DrawView()
     }
 }
 
